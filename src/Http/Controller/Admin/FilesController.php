@@ -111,7 +111,7 @@ class FilesController extends AdminController
         /* @var FolderInterface|null $folder */
         $folder = $this->dispatch(new GetFolder($folder));
 
-        if ($folder && $file = $files->findByNameAndFolder($name, $folder)) {
+        if ($folder && $file = $files->findByNameAndFolder(uniqid() . $name, $folder)) {
             $exists = true;
         }
 
